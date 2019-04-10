@@ -2,8 +2,7 @@
 Summary of changes included in this PR:
 - [ ]
 - [ ]
-- [ ]
 
-## Issues Referenced
+## Associated Issues
 - Closes #
 - Closes #
