@@ -11,5 +11,6 @@ test/
 .eslintrc.js
 .gitattributes
 .gitignore
+.mocharc.yml
 package-lock.json
 renovate.json

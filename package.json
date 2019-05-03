@@ -10,15 +10,15 @@
 		"name": "Swellaby",
 		"email": "opensource@swellaby.com",
 		"url": "http://swellaby.com"
-  },
+	},
 	"categories": [
 		"Extension Packs"
 	],
 	"extensionPack": [
-    "ms-python.python",
-    "VisualStudioExptTeam.vscodeintellicode",
-    "LittleFoxTeam.vscode-python-test-adapter",
-    "hbenl.vscode-test-explorer"
+		"ms-python.python",
+		"VisualStudioExptTeam.vscodeintellicode",
+		"LittleFoxTeam.vscode-python-test-adapter",
+		"hbenl.vscode-test-explorer"
 	],
 	"keywords": [
 		"python"
@@ -54,11 +54,11 @@
 		"chai": "^4.2.0",
 		"eslint": "^5.16.0",
 		"mkdirp": "^0.5.1",
-		"mocha": "^6.1.1",
-		"mocha-multi": "^1.0.1",
+		"mocha": "^6.1.4",
+		"mocha-multi": "^1.1.0",
 		"mocha-multi-reporters": "^1.1.7",
 		"rimraf": "^2.6.3",
-		"vsce": "^1.59.0"
+		"vsce": "^1.61.0"
 	},
 	"license": "MIT",
 	"bugs": {
