@@ -1,8 +1,7 @@
 trigger:
 - master
 
-pr:
-- master
+pr: none
 
 pool:
   vmImage: 'Ubuntu-16.04'
@@ -22,5 +21,39 @@ steps:
       testResultsFormat: 'JUnit'
       testResultsFiles: 'xunit.xml'
       searchFolder: '$(Build.SourcesDirectory)/.testresults/unit'
-      testRunTitle: 'vscode-python-pack::Unit Tests::Build $(Build.BuildId)'
+      testRunTitle: 'vscode-python-pack::Unit Tests::CI Build $(Build.BuildId)'
+
+
+- script: |
+    git checkout master
+    git config user.name $(githubUser)
+    git config user.email $(githubEmail)
+    npm -f version $(packageBumpType) -m "chore: Bumped to version %s from release pipeline $(succinctAllSkipTokens)"
+    export PACKAGE_VERSION=$(node -e "console.log(require('./package.json').version);")
+    echo "##vso[task.setVariable variable=packageVersion]$PACKAGE_VERSION"
+    npm run package:vsix
+    git add package-lock.json
+    git commit -n -m "chore: Bumped to version $PACKAGE_VERSION from release pipeline $(succinctAllSkipTokens)"
+    git push https://$(githubPat)@github.com/swellaby/vscode-python-pack.git
+  displayName: 'Bump version and check-in'
+
+- script: |
+    npm run package:vsix
+    rm -rf node_modules/
+    npm i vsce --no-save
+  displayName: 'Package extension'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive repo'
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+    archiveType: tar
+    archiveFile: '$(repoArchivePath)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish repo tarball'
+  inputs:
+    PathtoPublish: '$(repoArchivePath)'
+    ArtifactName: '$(repoArtifactName)'
 
