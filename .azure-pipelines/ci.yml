@@ -49,11 +49,11 @@ steps:
     rootFolderOrFile: '$(Build.SourcesDirectory)'
     includeRootFolder: false
     archiveType: tar
-    archiveFile: '$(repoArchivePath)'
+    archiveFile: '$(repoArchiveFile)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish repo tarball'
   inputs:
-    PathtoPublish: '$(repoArchivePath)'
+    PathtoPublish: '$(repoArchiveDirectory)'
     ArtifactName: '$(repoArtifactName)'
 
