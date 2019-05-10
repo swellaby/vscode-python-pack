@@ -1,5 +1,5 @@
-# Rust Extension Pack
-VS Code Extension Pack for Python development. 
+# Python Extension Pack
+Minimalist VS Code Extension Pack for Python development. 
 
 [![Version Badge][version-badge]][ext-url]
 [![Installs Badge][installs-badge]][ext-url]
