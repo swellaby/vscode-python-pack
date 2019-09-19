@@ -35,7 +35,7 @@ suite('Metadata Tests:', () => {
 
     test('Should have the correct gallery banner', () => {
         const galleryBanner = manifest.galleryBanner;
-        assert.deepEqual(galleryBanner.color.toLowerCase(), '#b7410e');
+        assert.deepEqual(galleryBanner.color.toLowerCase(), '#2b5b84');
         assert.deepEqual(galleryBanner.theme, 'dark');
     });
 
