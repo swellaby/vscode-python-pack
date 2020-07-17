@@ -2,7 +2,7 @@
 	"name": "python-pack",
 	"displayName": "Python Extension Pack",
 	"description": "Extension Pack for Python",
-	"version": "0.1.15",
+	"version": "0.1.16",
 	"preview": true,
 	"private": true,
 	"publisher": "Swellaby",
